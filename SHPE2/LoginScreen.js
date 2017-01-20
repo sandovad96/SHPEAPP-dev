@@ -76,8 +76,14 @@ export class LogInInput extends Component {
               placeholder='Password' secureTextEntry/>
           </InputGroup>
           </View>
-        <LoginButton logIn = {this.logIn} navigator ={this.props.navigator} />
-          </View> 
+          <View style={{height:50}}>
+            <Container>
+                <Content>
+                    <Button style={{backgroundColor: '#eeb211'}} onPress={() => this.logIn()} rounded >              Login           </Button>
+                </Content>
+            </Container>
+            </View>          
+            </View> 
           
       );
   }
@@ -96,34 +102,6 @@ export class LogInInput extends Component {
   }
   
 }
-
-
- class LoginButton extends Component {
-   constructor(props) {
-    super(props);
-    this.state = {
-    }
-  }
-  
-    render() {
-       const routes = [{id:'LoginScreen'},{id:'HomeScreen'}];
-        return (
-          
-           <View style={{height:50}}>
-            <Container>
-                <Content>
-                    <Button style={{backgroundColor: '#eeb211'}} onPress={() => this.props.logIn()} rounded >              Login           </Button>
-                </Content>
-            </Container>
-            </View>
-        );
-    }
-   /*nextScreen() {
-     this.props.navigator.push({id:"Home"})
-     
-   }*/
-   
-} 
 
 class FacebookLoginButton extends Component {
     render() {
