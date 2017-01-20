@@ -2,26 +2,26 @@ import React, { Component } from 'react';
 import {
   AppRegistry, StyleSheet, TextInput, Image, TouchableHighlight, Alert, Navigator, NavigatorIOS} from 'react-native';
   import{Button, Text,View, Container, Content, InputGroup, Input} from 'native-base';
-import LoginScreen from './LoginScreen';
 import HomeScreen from './HomeScreen';
-
+import LoginScreen from './LoginScreen';
+import LoginButton from './LoginScreen';
 export default class Navigation extends Component {
     render() {
-        const routes = [{id:'LoginScreen'},{id:'HomeScreen'}];
     return (
-      <Navigator
-        initialRoute={routes[0]}
-        initialRouteStack={routes}
-        renderScene={this.navigatorRenderScene}/>
+       <Navigator
+       initialRoute={{id:"Login"}}
+        renderScene={(route, navigator) =>
+        {return this.renderScene(route, navigator)}}
+      />
     );
-  }
-  navigatorRenderScene(route, navigator) {
-    _navigator = navigator;
-    switch (route.id) {
-      case 'LoginScreen':
-        return (<LoginScreen navigator={navigator}/>);
-      case 'HomeScreen':
-        return (<HomeScreen navigator={navigator}/>);
+}
+
+renderScene(route, navigator) {
+    switch(route.id) {
+        case "Login":
+            return ( <LoginScreen {...route.passProps} navigator={navigator}/>);
+        case "Home": 
+            return (<HomeScreen {...route.passProps} navigator={navigator}/>);
     }
-  }
+}
 }

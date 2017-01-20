@@ -5,8 +5,12 @@ import{Button, Text,View, Container, Content, InputGroup, Input} from 'native-ba
 export default class HomeScreen extends Component{
   render() {
     return (
-      <View>
-       <Image source = {require("./Background.png")} style = {{flex:1}}  resizeMode={Image.resizeMode.contain} />
+      <View style={{width:220, height:110}}>
+     
+          <Text >
+          Second Screen
+            
+          </Text>
       </View>
     );
   }
